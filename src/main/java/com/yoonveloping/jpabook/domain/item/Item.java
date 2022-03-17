@@ -1,6 +1,6 @@
 package com.yoonveloping.jpabook.domain.item;
 
-import com.yoonveloping.jpabook.domain.Category;
+import com.yoonveloping.jpabook.domain.CategoryItem;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Column;
@@ -10,7 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -29,6 +29,6 @@ public abstract class Item {
 	private int price;
 	private int stockQuantity;
 
-	@ManyToMany(mappedBy = "items")
-	private List<Category> categories = new ArrayList<>();
+	@OneToMany(mappedBy = "item")
+	private List<CategoryItem> categoryItems = new ArrayList<>();
 }
