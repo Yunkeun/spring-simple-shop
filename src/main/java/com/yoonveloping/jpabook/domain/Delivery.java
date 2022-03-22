@@ -1,5 +1,7 @@
 package com.yoonveloping.jpabook.domain;
 
+import static javax.persistence.FetchType.*;
+
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -19,7 +21,7 @@ public class Delivery {
 	@Column(name = "delivery_id")
 	private Long id;
 
-	@OneToOne(mappedBy = "delivery")
+	@OneToOne(mappedBy = "delivery", fetch = LAZY)
 	private Order order;
 
 	@Embedded // 내장 타입을 포함한다.

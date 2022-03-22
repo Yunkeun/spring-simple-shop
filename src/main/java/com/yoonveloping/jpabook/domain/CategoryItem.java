@@ -1,5 +1,7 @@
 package com.yoonveloping.jpabook.domain;
 
+import static javax.persistence.FetchType.*;
+
 import com.yoonveloping.jpabook.domain.item.Item;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,11 +20,11 @@ public class CategoryItem {
 	@Column(name = "category_item_id")
 	private Long id;
 
-	@ManyToOne
+	@ManyToOne(fetch = LAZY)
 	@JoinColumn(name = "category_id")
 	private Category category;
 
-	@ManyToOne
+	@ManyToOne(fetch = LAZY)
 	@JoinColumn(name = "item_id")
 	private Item item;
 }

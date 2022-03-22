@@ -1,5 +1,7 @@
 package com.yoonveloping.jpabook.domain;
 
+import static javax.persistence.FetchType.*;
+
 import com.yoonveloping.jpabook.domain.item.Item;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,11 +20,11 @@ public class OrderItem {
 	@Column(name = "order_item_id")
 	private Long id;
 
-	@ManyToOne
+	@ManyToOne(fetch = LAZY)
 	@JoinColumn(name = "item_id")
 	private Item item;
 
-	@ManyToOne
+	@ManyToOne(fetch = LAZY)
 	@JoinColumn(name = "order_id")
 	private Order order;
 

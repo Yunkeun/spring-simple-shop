@@ -1,5 +1,7 @@
 package com.yoonveloping.jpabook.domain;
 
+import static javax.persistence.FetchType.*;
+
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Column;
@@ -23,7 +25,7 @@ public class Category {
 
 	private String name;
 
-	@ManyToOne
+	@ManyToOne(fetch = LAZY)
 	@JoinColumn(name = "parent_id")
 	private Category parent;
 
